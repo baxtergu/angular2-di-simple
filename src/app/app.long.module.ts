@@ -15,7 +15,9 @@ import { ApiService } from './services/api.service';
     FormsModule,
     HttpModule
   ],
-  providers: [ApiService],
+  providers: [
+    { provide: ApiService, useClass: ApiService }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

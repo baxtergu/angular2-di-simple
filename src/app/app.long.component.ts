@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { ApiService } from './services/api.service';
 
 @Component({
@@ -7,7 +7,9 @@ import { ApiService } from './services/api.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private apiService: ApiService) {
+  apiService: ApiService;
+  constructor( @Inject(ApiService) apiService) {
+    this.apiService = apiService;
   }
 
   invokeApi(): void {
